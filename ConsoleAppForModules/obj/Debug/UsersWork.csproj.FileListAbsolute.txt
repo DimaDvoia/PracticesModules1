@@ -1,0 +1,16 @@
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\ConsoleAppForModules.exe.config
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\ConsoleAppForModules.exe
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\ConsoleAppForModules.pdb
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\ClassLibrary1.dll
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\practice_modules.exe
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\EntityFramework.dll
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\ClassLibrary1.pdb
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\practice_modules.pdb
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\practice_modules.exe.config
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\bin\Debug\EntityFramework.xml
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\obj\Debug\UsersWork.csproj.AssemblyReference.cache
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\obj\Debug\UsersWork.csproj.SuggestedBindingRedirects.cache
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\obj\Debug\UsersWork.csproj.CoreCompileInputs.cache
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\obj\Debug\UsersWork.csproj.CopyComplete
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\obj\Debug\ConsoleAppForModules.exe
+C:\Users\apple\Desktop\Программирование\practice_modules\ConsoleAppForModules\obj\Debug\ConsoleAppForModules.pdb

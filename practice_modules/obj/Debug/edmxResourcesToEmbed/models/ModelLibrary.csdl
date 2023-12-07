@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AEROPORT_ModulesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AIRCONTROLLERS">
+    <Key>
+      <PropertyRef Name="ID_AIRCONTROLLERS" />
+    </Key>
+    <Property Name="ID_AIRCONTROLLERS" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AGE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_AIRCONTROLLERS_AIRPORTS" FromRole="AIRCONTROLLERS" ToRole="AIRPORTS" />
+  </EntityType>
+  <EntityType Name="AIRPORTS">
+    <Key>
+      <PropertyRef Name="ID_AIRPORT" />
+    </Key>
+    <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ADDRESS" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AIRCONTROLLERS" Relationship="Self.FK_AIRCONTROLLERS_AIRPORTS" FromRole="AIRPORTS" ToRole="AIRCONTROLLERS" />
+    <NavigationProperty Name="BUS" Relationship="Self.FK_BUS_AIRPORTS" FromRole="AIRPORTS" ToRole="BUS" />
+    <NavigationProperty Name="CONTROLLERS" Relationship="Self.FK_CONTROLLERS_AIRPORTS" FromRole="AIRPORTS" ToRole="CONTROLLERS" />
+    <NavigationProperty Name="LOADERS" Relationship="Self.FK_LOADERS_AIRPORTS" FromRole="AIRPORTS" ToRole="LOADERS" />
+    <NavigationProperty Name="PLANES" Relationship="Self.FK_PLANES_AIRPORTS" FromRole="AIRPORTS" ToRole="PLANES" />
+  </EntityType>
+  <EntityType Name="BUS">
+    <Key>
+      <PropertyRef Name="ID_BUS" />
+    </Key>
+    <Property Name="ID_BUS" Type="Int32" Nullable="false" />
+    <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_BUS_AIRPORTS" FromRole="BUS" ToRole="AIRPORTS" />
+  </EntityType>
+  <EntityType Name="CONTROLLERS">
+    <Key>
+      <PropertyRef Name="ID_CONTROLLER" />
+    </Key>
+    <Property Name="ID_CONTROLLER" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ID_AIRPORT" Type="Int32" />
+    <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_CONTROLLERS_AIRPORTS" FromRole="CONTROLLERS" ToRole="AIRPORTS" />
+  </EntityType>
+  <EntityType Name="FLIGHTS">
+    <Key>
+      <PropertyRef Name="ID_FLIGHT" />
+    </Key>
+    <Property Name="ID_FLIGHT" Type="Int32" Nullable="false" />
+    <Property Name="DEPARTURE_CITY" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ARRIVE_CITY" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DATE_ARRIVE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_PLAIN" Type="Int32" Nullable="false" />
+    <Property Name="ID_PILOT" Type="Int32" Nullable="false" />
+    <Property Name="ID_SECOND_PILOT" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PILOTS" Relationship="Self.FK_FLIGHTS_PILOTS" FromRole="FLIGHTS" ToRole="PILOTS" />
+    <NavigationProperty Name="PLANES" Relationship="Self.FK_FLIGHTS_PLANES" FromRole="FLIGHTS" ToRole="PLANES" />
+    <NavigationProperty Name="SECOND_PILOTS" Relationship="Self.FK_FLIGHTS_SECOND_PILOTS" FromRole="FLIGHTS" ToRole="SECOND_PILOTS" />
+    <NavigationProperty Name="PASSENGERS" Relationship="Self.FK_PASSENGERS_FLIGHTS" FromRole="FLIGHTS" ToRole="PASSENGERS" />
+  </EntityType>
+  <EntityType Name="LOADERS">
+    <Key>
+      <PropertyRef Name="ID_LOADER" />
+    </Key>
+    <Property Name="ID_LOADER" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+    <Property Name="AGE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_LOADERS_AIRPORTS" FromRole="LOADERS" ToRole="AIRPORTS" />
+  </EntityType>
+  <EntityType Name="PASSENGERS">
+    <Key>
+      <PropertyRef Name="ID_PASSENGER" />
+    </Key>
+    <Property Name="ID_PASSENGER" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_FLIGHT" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FLIGHTS" Relationship="Self.FK_PASSENGERS_FLIGHTS" FromRole="PASSENGERS" ToRole="FLIGHTS" />
+  </EntityType>
+  <EntityType Name="PILOTS">
+    <Key>
+      <PropertyRef Name="ID_PILOT" />
+    </Key>
+    <Property Name="ID_PILOT" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AGE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="FLIGHTS" Relationship="Self.FK_FLIGHTS_PILOTS" FromRole="PILOTS" ToRole="FLIGHTS" />
+    <NavigationProperty Name="PLANES" Relationship="Self.FK_PLANES_PILOTS" FromRole="PILOTS" ToRole="PLANES" />
+  </EntityType>
+  <EntityType Name="PLANES">
+    <Key>
+      <PropertyRef Name="ID_PLANE" />
+    </Key>
+    <Property Name="ID_PLANE" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NUMBER_OF_SEATS" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_PILOT" Type="Int32" Nullable="false" />
+    <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+    <Property Name="ID_SECOND_PILOT" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_PLANES_AIRPORTS" FromRole="PLANES" ToRole="AIRPORTS" />
+    <NavigationProperty Name="FLIGHTS" Relationship="Self.FK_FLIGHTS_PLANES" FromRole="PLANES" ToRole="FLIGHTS" />
+    <NavigationProperty Name="PILOTS" Relationship="Self.FK_PLANES_PILOTS" FromRole="PLANES" ToRole="PILOTS" />
+    <NavigationProperty Name="SECOND_PILOTS" Relationship="Self.FK_PLANES_SECOND_PILOTS" FromRole="PLANES" ToRole="SECOND_PILOTS" />
+  </EntityType>
+  <EntityType Name="SECOND_PILOTS">
+    <Key>
+      <PropertyRef Name="ID_SECOND_PILOT" />
+    </Key>
+    <Property Name="ID_SECOND_PILOT" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AGE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="FLIGHTS" Relationship="Self.FK_FLIGHTS_SECOND_PILOTS" FromRole="SECOND_PILOTS" ToRole="FLIGHTS" />
+    <NavigationProperty Name="PLANES" Relationship="Self.FK_PLANES_SECOND_PILOTS" FromRole="SECOND_PILOTS" ToRole="PLANES" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_AIRCONTROLLERS_AIRPORTS">
+    <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+    <End Role="AIRCONTROLLERS" Type="Self.AIRCONTROLLERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPORTS">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Principal>
+      <Dependent Role="AIRCONTROLLERS">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BUS_AIRPORTS">
+    <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+    <End Role="BUS" Type="Self.BUS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPORTS">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Principal>
+      <Dependent Role="BUS">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTROLLERS_AIRPORTS">
+    <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="0..1" />
+    <End Role="CONTROLLERS" Type="Self.CONTROLLERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPORTS">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Principal>
+      <Dependent Role="CONTROLLERS">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOADERS_AIRPORTS">
+    <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+    <End Role="LOADERS" Type="Self.LOADERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPORTS">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Principal>
+      <Dependent Role="LOADERS">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANES_AIRPORTS">
+    <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+    <End Role="PLANES" Type="Self.PLANES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPORTS">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Principal>
+      <Dependent Role="PLANES">
+        <PropertyRef Name="ID_AIRPORT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FLIGHTS_PILOTS">
+    <End Role="PILOTS" Type="Self.PILOTS" Multiplicity="1" />
+    <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PILOTS">
+        <PropertyRef Name="ID_PILOT" />
+      </Principal>
+      <Dependent Role="FLIGHTS">
+        <PropertyRef Name="ID_PILOT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FLIGHTS_PLANES">
+    <End Role="PLANES" Type="Self.PLANES" Multiplicity="1" />
+    <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLANES">
+        <PropertyRef Name="ID_PLANE" />
+      </Principal>
+      <Dependent Role="FLIGHTS">
+        <PropertyRef Name="ID_PLAIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FLIGHTS_SECOND_PILOTS">
+    <End Role="SECOND_PILOTS" Type="Self.SECOND_PILOTS" Multiplicity="1" />
+    <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SECOND_PILOTS">
+        <PropertyRef Name="ID_SECOND_PILOT" />
+      </Principal>
+      <Dependent Role="FLIGHTS">
+        <PropertyRef Name="ID_SECOND_PILOT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PASSENGERS_FLIGHTS">
+    <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="1" />
+    <End Role="PASSENGERS" Type="Self.PASSENGERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FLIGHTS">
+        <PropertyRef Name="ID_FLIGHT" />
+      </Principal>
+      <Dependent Role="PASSENGERS">
+        <PropertyRef Name="ID_FLIGHT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANES_PILOTS">
+    <End Role="PILOTS" Type="Self.PILOTS" Multiplicity="1" />
+    <End Role="PLANES" Type="Self.PLANES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PILOTS">
+        <PropertyRef Name="ID_PILOT" />
+      </Principal>
+      <Dependent Role="PLANES">
+        <PropertyRef Name="ID_PILOT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLANES_SECOND_PILOTS">
+    <End Role="SECOND_PILOTS" Type="Self.SECOND_PILOTS" Multiplicity="1" />
+    <End Role="PLANES" Type="Self.PLANES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SECOND_PILOTS">
+        <PropertyRef Name="ID_SECOND_PILOT" />
+      </Principal>
+      <Dependent Role="PLANES">
+        <PropertyRef Name="ID_SECOND_PILOT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AEROPORT_ModulesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AIRCONTROLLERS" EntityType="Self.AIRCONTROLLERS" />
+    <EntitySet Name="AIRPORTS" EntityType="Self.AIRPORTS" />
+    <EntitySet Name="BUS" EntityType="Self.BUS" />
+    <EntitySet Name="CONTROLLERS" EntityType="Self.CONTROLLERS" />
+    <EntitySet Name="FLIGHTS" EntityType="Self.FLIGHTS" />
+    <EntitySet Name="LOADERS" EntityType="Self.LOADERS" />
+    <EntitySet Name="PASSENGERS" EntityType="Self.PASSENGERS" />
+    <EntitySet Name="PILOTS" EntityType="Self.PILOTS" />
+    <EntitySet Name="PLANES" EntityType="Self.PLANES" />
+    <EntitySet Name="SECOND_PILOTS" EntityType="Self.SECOND_PILOTS" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_AIRCONTROLLERS_AIRPORTS" Association="Self.FK_AIRCONTROLLERS_AIRPORTS">
+      <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+      <End Role="AIRCONTROLLERS" EntitySet="AIRCONTROLLERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BUS_AIRPORTS" Association="Self.FK_BUS_AIRPORTS">
+      <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+      <End Role="BUS" EntitySet="BUS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTROLLERS_AIRPORTS" Association="Self.FK_CONTROLLERS_AIRPORTS">
+      <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+      <End Role="CONTROLLERS" EntitySet="CONTROLLERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOADERS_AIRPORTS" Association="Self.FK_LOADERS_AIRPORTS">
+      <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+      <End Role="LOADERS" EntitySet="LOADERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANES_AIRPORTS" Association="Self.FK_PLANES_AIRPORTS">
+      <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+      <End Role="PLANES" EntitySet="PLANES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FLIGHTS_PILOTS" Association="Self.FK_FLIGHTS_PILOTS">
+      <End Role="PILOTS" EntitySet="PILOTS" />
+      <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FLIGHTS_PLANES" Association="Self.FK_FLIGHTS_PLANES">
+      <End Role="PLANES" EntitySet="PLANES" />
+      <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FLIGHTS_SECOND_PILOTS" Association="Self.FK_FLIGHTS_SECOND_PILOTS">
+      <End Role="SECOND_PILOTS" EntitySet="SECOND_PILOTS" />
+      <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PASSENGERS_FLIGHTS" Association="Self.FK_PASSENGERS_FLIGHTS">
+      <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+      <End Role="PASSENGERS" EntitySet="PASSENGERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANES_PILOTS" Association="Self.FK_PLANES_PILOTS">
+      <End Role="PILOTS" EntitySet="PILOTS" />
+      <End Role="PLANES" EntitySet="PLANES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLANES_SECOND_PILOTS" Association="Self.FK_PLANES_SECOND_PILOTS">
+      <End Role="SECOND_PILOTS" EntitySet="SECOND_PILOTS" />
+      <End Role="PLANES" EntitySet="PLANES" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AEROPORT_ModulesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMINS">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AIRCONTROLLERS">
+          <Key>
+            <PropertyRef Name="ID AIRCONTROLLERS" />
+          </Key>
+          <Property Name="ID AIRCONTROLLERS" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="SECOND NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="AGE" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="ID AIRPORT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AIRPORTS">
+          <Key>
+            <PropertyRef Name="ID AIRPORT" />
+          </Key>
+          <Property Name="ID AIRPORT" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BUS">
+          <Key>
+            <PropertyRef Name="ID BUS" />
+          </Key>
+          <Property Name="ID BUS" Type="int" Nullable="false" />
+          <Property Name="ID AIRPORT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONTROLLERS">
+          <Key>
+            <PropertyRef Name="ID CONTROLLER" />
+          </Key>
+          <Property Name="ID CONTROLLER" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" />
+          <Property Name="SECOND NAME" Type="nvarchar" MaxLength="25" />
+          <Property Name="ID AIRPORT" Type="int" />
+        </EntityType>
+        <EntityType Name="FLIGHTS">
+          <Key>
+            <PropertyRef Name="ID FLIGHT" />
+          </Key>
+          <Property Name="ID FLIGHT" Type="int" Nullable="false" />
+          <Property Name="DEPARTURE CITY" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ARRIVE CITY" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="DATE ARRIVE" Type="date" Nullable="false" />
+          <Property Name="ID PLAIN" Type="int" Nullable="false" />
+          <Property Name="ID PILOT" Type="int" Nullable="false" />
+          <Property Name="ID SECOND PILOT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOADERS">
+          <Key>
+            <PropertyRef Name="ID LOADER" />
+          </Key>
+          <Property Name="ID LOADER" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="SECOND NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ID AIRPORT" Type="int" Nullable="false" />
+          <Property Name="AGE" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PASSENGERS">
+          <Key>
+            <PropertyRef Name="ID PASSENGER" />
+          </Key>
+          <Property Name="ID PASSENGER" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="SECOND NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ID FLIGHT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PILOTS">
+          <Key>
+            <PropertyRef Name="ID PILOT" />
+          </Key>
+          <Property Name="ID PILOT" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="SECOND NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="AGE" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="GENDER" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PLAINES">
+          <Key>
+            <PropertyRef Name="ID PLANE" />
+          </Key>
+          <Property Name="ID PLANE" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NUMBER OF SEATS" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="ID AIRPORT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SECOND PILOTS">
+          <Key>
+            <PropertyRef Name="ID SECOND PILOT" />
+          </Key>
+          <Property Name="ID SECOND PILOT" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="SECOND NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="AGE" Type="nvarchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="LOGIN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+        </EntityType>
+        <Association Name="FK_AIRCONTROLLERS_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+          <End Role="AIRCONTROLLERS" Type="Self.AIRCONTROLLERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID AIRPORT" />
+            </Principal>
+            <Dependent Role="AIRCONTROLLERS">
+              <PropertyRef Name="ID AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUS_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+          <End Role="BUS" Type="Self.BUS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID AIRPORT" />
+            </Principal>
+            <Dependent Role="BUS">
+              <PropertyRef Name="ID AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTROLLERS_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="0..1" />
+          <End Role="CONTROLLERS" Type="Self.CONTROLLERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID AIRPORT" />
+            </Principal>
+            <Dependent Role="CONTROLLERS">
+              <PropertyRef Name="ID AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FLIGHTS_PILOTS">
+          <End Role="PILOTS" Type="Self.PILOTS" Multiplicity="1" />
+          <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PILOTS">
+              <PropertyRef Name="ID PILOT" />
+            </Principal>
+            <Dependent Role="FLIGHTS">
+              <PropertyRef Name="ID PILOT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FLIGHTS_PLANES">
+          <End Role="PLAINES" Type="Self.PLAINES" Multiplicity="1" />
+          <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLAINES">
+              <PropertyRef Name="ID PLANE" />
+            </Principal>
+            <Dependent Role="FLIGHTS">
+              <PropertyRef Name="ID PLAIN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FLIGHTS_SECOND PILOTS">
+          <End Role="SECOND PILOTS" Type="Self.SECOND PILOTS" Multiplicity="1" />
+          <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SECOND PILOTS">
+              <PropertyRef Name="ID SECOND PILOT" />
+            </Principal>
+            <Dependent Role="FLIGHTS">
+              <PropertyRef Name="ID SECOND PILOT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOADERS_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+          <End Role="LOADERS" Type="Self.LOADERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID AIRPORT" />
+            </Principal>
+            <Dependent Role="LOADERS">
+              <PropertyRef Name="ID AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PASSENGERS_FLIGHTS">
+          <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="1" />
+          <End Role="PASSENGERS" Type="Self.PASSENGERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FLIGHTS">
+              <PropertyRef Name="ID FLIGHT" />
+            </Principal>
+            <Dependent Role="PASSENGERS">
+              <PropertyRef Name="ID FLIGHT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANES_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+          <End Role="PLAINES" Type="Self.PLAINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID AIRPORT" />
+            </Principal>
+            <Dependent Role="PLAINES">
+              <PropertyRef Name="ID AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_ROLES">
+          <End Role="ROLES" Type="Self.ROLES" Multiplicity="0..1" />
+          <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="USERS">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AEROPORT_ModulesModelStoreContainer">
+          <EntitySet Name="ADMINS" EntityType="Self.ADMINS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AIRCONTROLLERS" EntityType="Self.AIRCONTROLLERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AIRPORTS" EntityType="Self.AIRPORTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BUS" EntityType="Self.BUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTROLLERS" EntityType="Self.CONTROLLERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FLIGHTS" EntityType="Self.FLIGHTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOADERS" EntityType="Self.LOADERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PASSENGERS" EntityType="Self.PASSENGERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PILOTS" EntityType="Self.PILOTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PLAINES" EntityType="Self.PLAINES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SECOND PILOTS" EntityType="Self.SECOND PILOTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AIRCONTROLLERS_AIRPORTS" Association="Self.FK_AIRCONTROLLERS_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="AIRCONTROLLERS" EntitySet="AIRCONTROLLERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUS_AIRPORTS" Association="Self.FK_BUS_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="BUS" EntitySet="BUS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTROLLERS_AIRPORTS" Association="Self.FK_CONTROLLERS_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="CONTROLLERS" EntitySet="CONTROLLERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FLIGHTS_PILOTS" Association="Self.FK_FLIGHTS_PILOTS">
+            <End Role="PILOTS" EntitySet="PILOTS" />
+            <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FLIGHTS_PLANES" Association="Self.FK_FLIGHTS_PLANES">
+            <End Role="PLAINES" EntitySet="PLAINES" />
+            <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FLIGHTS_SECOND PILOTS" Association="Self.FK_FLIGHTS_SECOND PILOTS">
+            <End Role="SECOND PILOTS" EntitySet="SECOND PILOTS" />
+            <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOADERS_AIRPORTS" Association="Self.FK_LOADERS_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="LOADERS" EntitySet="LOADERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PASSENGERS_FLIGHTS" Association="Self.FK_PASSENGERS_FLIGHTS">
+            <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+            <End Role="PASSENGERS" EntitySet="PASSENGERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANES_AIRPORTS" Association="Self.FK_PLANES_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="PLAINES" EntitySet="PLAINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_ROLES" Association="Self.FK_USERS_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USERS" EntitySet="USERS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AEROPORT_ModulesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMINS">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AIRCONTROLLERS">
+          <Key>
+            <PropertyRef Name="ID_AIRCONTROLLERS" />
+          </Key>
+          <Property Name="ID_AIRCONTROLLERS" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AGE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_AIRCONTROLLERS_AIRPORTS" FromRole="AIRCONTROLLERS" ToRole="AIRPORTS" />
+        </EntityType>
+        <EntityType Name="AIRPORTS">
+          <Key>
+            <PropertyRef Name="ID_AIRPORT" />
+          </Key>
+          <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AIRCONTROLLERS" Relationship="Self.FK_AIRCONTROLLERS_AIRPORTS" FromRole="AIRPORTS" ToRole="AIRCONTROLLERS" />
+          <NavigationProperty Name="BUS" Relationship="Self.FK_BUS_AIRPORTS" FromRole="AIRPORTS" ToRole="BUS" />
+          <NavigationProperty Name="CONTROLLERS" Relationship="Self.FK_CONTROLLERS_AIRPORTS" FromRole="AIRPORTS" ToRole="CONTROLLERS" />
+          <NavigationProperty Name="LOADERS" Relationship="Self.FK_LOADERS_AIRPORTS" FromRole="AIRPORTS" ToRole="LOADERS" />
+          <NavigationProperty Name="PLAINES" Relationship="Self.FK_PLANES_AIRPORTS" FromRole="AIRPORTS" ToRole="PLAINES" />
+        </EntityType>
+        <EntityType Name="BUS">
+          <Key>
+            <PropertyRef Name="ID_BUS" />
+          </Key>
+          <Property Name="ID_BUS" Type="Int32" Nullable="false" />
+          <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_BUS_AIRPORTS" FromRole="BUS" ToRole="AIRPORTS" />
+        </EntityType>
+        <EntityType Name="CONTROLLERS">
+          <Key>
+            <PropertyRef Name="ID_CONTROLLER" />
+          </Key>
+          <Property Name="ID_CONTROLLER" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ID_AIRPORT" Type="Int32" />
+          <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_CONTROLLERS_AIRPORTS" FromRole="CONTROLLERS" ToRole="AIRPORTS" />
+        </EntityType>
+        <EntityType Name="FLIGHTS">
+          <Key>
+            <PropertyRef Name="ID_FLIGHT" />
+          </Key>
+          <Property Name="ID_FLIGHT" Type="Int32" Nullable="false" />
+          <Property Name="DEPARTURE_CITY" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ARRIVE_CITY" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DATE_ARRIVE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_PLAIN" Type="Int32" Nullable="false" />
+          <Property Name="ID_PILOT" Type="Int32" Nullable="false" />
+          <Property Name="ID_SECOND_PILOT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PILOTS" Relationship="Self.FK_FLIGHTS_PILOTS" FromRole="FLIGHTS" ToRole="PILOTS" />
+          <NavigationProperty Name="PLAINES" Relationship="Self.FK_FLIGHTS_PLANES" FromRole="FLIGHTS" ToRole="PLAINES" />
+          <NavigationProperty Name="SECOND_PILOTS" Relationship="Self.FK_FLIGHTS_SECOND_PILOTS" FromRole="FLIGHTS" ToRole="SECOND_PILOTS" />
+          <NavigationProperty Name="PASSENGERS" Relationship="Self.FK_PASSENGERS_FLIGHTS" FromRole="FLIGHTS" ToRole="PASSENGERS" />
+        </EntityType>
+        <EntityType Name="LOADERS">
+          <Key>
+            <PropertyRef Name="ID_LOADER" />
+          </Key>
+          <Property Name="ID_LOADER" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+          <Property Name="AGE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_LOADERS_AIRPORTS" FromRole="LOADERS" ToRole="AIRPORTS" />
+        </EntityType>
+        <EntityType Name="PASSENGERS">
+          <Key>
+            <PropertyRef Name="ID_PASSENGER" />
+          </Key>
+          <Property Name="ID_PASSENGER" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_FLIGHT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FLIGHTS" Relationship="Self.FK_PASSENGERS_FLIGHTS" FromRole="PASSENGERS" ToRole="FLIGHTS" />
+        </EntityType>
+        <EntityType Name="PILOTS">
+          <Key>
+            <PropertyRef Name="ID_PILOT" />
+          </Key>
+          <Property Name="ID_PILOT" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AGE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FLIGHTS" Relationship="Self.FK_FLIGHTS_PILOTS" FromRole="PILOTS" ToRole="FLIGHTS" />
+        </EntityType>
+        <EntityType Name="PLAINES">
+          <Key>
+            <PropertyRef Name="ID_PLANE" />
+          </Key>
+          <Property Name="ID_PLANE" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NUMBER_OF_SEATS" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_AIRPORT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AIRPORTS" Relationship="Self.FK_PLANES_AIRPORTS" FromRole="PLAINES" ToRole="AIRPORTS" />
+          <NavigationProperty Name="FLIGHTS" Relationship="Self.FK_FLIGHTS_PLANES" FromRole="PLAINES" ToRole="FLIGHTS" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK_USERS_ROLES" FromRole="ROLES" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="SECOND_PILOTS">
+          <Key>
+            <PropertyRef Name="ID_SECOND_PILOT" />
+          </Key>
+          <Property Name="ID_SECOND_PILOT" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SECOND_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AGE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FLIGHTS" Relationship="Self.FK_FLIGHTS_SECOND_PILOTS" FromRole="SECOND_PILOTS" ToRole="FLIGHTS" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="LOGIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role_id" Type="Int32" />
+          <NavigationProperty Name="ROLES" Relationship="Self.FK_USERS_ROLES" FromRole="USERS" ToRole="ROLES" />
+        </EntityType>
+        <Association Name="FK_AIRCONTROLLERS_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+          <End Role="AIRCONTROLLERS" Type="Self.AIRCONTROLLERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Principal>
+            <Dependent Role="AIRCONTROLLERS">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUS_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+          <End Role="BUS" Type="Self.BUS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Principal>
+            <Dependent Role="BUS">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTROLLERS_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="0..1" />
+          <End Role="CONTROLLERS" Type="Self.CONTROLLERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Principal>
+            <Dependent Role="CONTROLLERS">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOADERS_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+          <End Role="LOADERS" Type="Self.LOADERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Principal>
+            <Dependent Role="LOADERS">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANES_AIRPORTS">
+          <End Role="AIRPORTS" Type="Self.AIRPORTS" Multiplicity="1" />
+          <End Role="PLAINES" Type="Self.PLAINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AIRPORTS">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Principal>
+            <Dependent Role="PLAINES">
+              <PropertyRef Name="ID_AIRPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FLIGHTS_PILOTS">
+          <End Role="PILOTS" Type="Self.PILOTS" Multiplicity="1" />
+          <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PILOTS">
+              <PropertyRef Name="ID_PILOT" />
+            </Principal>
+            <Dependent Role="FLIGHTS">
+              <PropertyRef Name="ID_PILOT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FLIGHTS_PLANES">
+          <End Role="PLAINES" Type="Self.PLAINES" Multiplicity="1" />
+          <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLAINES">
+              <PropertyRef Name="ID_PLANE" />
+            </Principal>
+            <Dependent Role="FLIGHTS">
+              <PropertyRef Name="ID_PLAIN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FLIGHTS_SECOND_PILOTS">
+          <End Role="SECOND_PILOTS" Type="Self.SECOND_PILOTS" Multiplicity="1" />
+          <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SECOND_PILOTS">
+              <PropertyRef Name="ID_SECOND_PILOT" />
+            </Principal>
+            <Dependent Role="FLIGHTS">
+              <PropertyRef Name="ID_SECOND_PILOT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PASSENGERS_FLIGHTS">
+          <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="1" />
+          <End Role="PASSENGERS" Type="Self.PASSENGERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FLIGHTS">
+              <PropertyRef Name="ID_FLIGHT" />
+            </Principal>
+            <Dependent Role="PASSENGERS">
+              <PropertyRef Name="ID_FLIGHT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_ROLES">
+          <End Role="ROLES" Type="Self.ROLES" Multiplicity="0..1" />
+          <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="USERS">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AEROPORT_ModulesEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINS" EntityType="Self.ADMINS" />
+          <EntitySet Name="AIRCONTROLLERS" EntityType="Self.AIRCONTROLLERS" />
+          <EntitySet Name="AIRPORTS" EntityType="Self.AIRPORTS" />
+          <EntitySet Name="BUS" EntityType="Self.BUS" />
+          <EntitySet Name="CONTROLLERS" EntityType="Self.CONTROLLERS" />
+          <EntitySet Name="FLIGHTS" EntityType="Self.FLIGHTS" />
+          <EntitySet Name="LOADERS" EntityType="Self.LOADERS" />
+          <EntitySet Name="PASSENGERS" EntityType="Self.PASSENGERS" />
+          <EntitySet Name="PILOTS" EntityType="Self.PILOTS" />
+          <EntitySet Name="PLAINES" EntityType="Self.PLAINES" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLES" />
+          <EntitySet Name="SECOND_PILOTS" EntityType="Self.SECOND_PILOTS" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" />
+          <AssociationSet Name="FK_AIRCONTROLLERS_AIRPORTS" Association="Self.FK_AIRCONTROLLERS_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="AIRCONTROLLERS" EntitySet="AIRCONTROLLERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUS_AIRPORTS" Association="Self.FK_BUS_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="BUS" EntitySet="BUS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTROLLERS_AIRPORTS" Association="Self.FK_CONTROLLERS_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="CONTROLLERS" EntitySet="CONTROLLERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOADERS_AIRPORTS" Association="Self.FK_LOADERS_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="LOADERS" EntitySet="LOADERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANES_AIRPORTS" Association="Self.FK_PLANES_AIRPORTS">
+            <End Role="AIRPORTS" EntitySet="AIRPORTS" />
+            <End Role="PLAINES" EntitySet="PLAINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FLIGHTS_PILOTS" Association="Self.FK_FLIGHTS_PILOTS">
+            <End Role="PILOTS" EntitySet="PILOTS" />
+            <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FLIGHTS_PLANES" Association="Self.FK_FLIGHTS_PLANES">
+            <End Role="PLAINES" EntitySet="PLAINES" />
+            <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FLIGHTS_SECOND_PILOTS" Association="Self.FK_FLIGHTS_SECOND_PILOTS">
+            <End Role="SECOND_PILOTS" EntitySet="SECOND_PILOTS" />
+            <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PASSENGERS_FLIGHTS" Association="Self.FK_PASSENGERS_FLIGHTS">
+            <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+            <End Role="PASSENGERS" EntitySet="PASSENGERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_ROLES" Association="Self.FK_USERS_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USERS" EntitySet="USERS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AEROPORT_ModulesModelStoreContainer" CdmEntityContainer="AEROPORT_ModulesEntities3">
+          <EntitySetMapping Name="ADMINS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.ADMINS">
+              <MappingFragment StoreEntitySet="ADMINS">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AIRCONTROLLERS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.AIRCONTROLLERS">
+              <MappingFragment StoreEntitySet="AIRCONTROLLERS">
+                <ScalarProperty Name="ID_AIRCONTROLLERS" ColumnName="ID AIRCONTROLLERS" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SECOND_NAME" ColumnName="SECOND NAME" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="ID_AIRPORT" ColumnName="ID AIRPORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AIRPORTS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.AIRPORTS">
+              <MappingFragment StoreEntitySet="AIRPORTS">
+                <ScalarProperty Name="ID_AIRPORT" ColumnName="ID AIRPORT" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BUS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.BUS">
+              <MappingFragment StoreEntitySet="BUS">
+                <ScalarProperty Name="ID_BUS" ColumnName="ID BUS" />
+                <ScalarProperty Name="ID_AIRPORT" ColumnName="ID AIRPORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTROLLERS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.CONTROLLERS">
+              <MappingFragment StoreEntitySet="CONTROLLERS">
+                <ScalarProperty Name="ID_CONTROLLER" ColumnName="ID CONTROLLER" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SECOND_NAME" ColumnName="SECOND NAME" />
+                <ScalarProperty Name="ID_AIRPORT" ColumnName="ID AIRPORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FLIGHTS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.FLIGHTS">
+              <MappingFragment StoreEntitySet="FLIGHTS">
+                <ScalarProperty Name="ID_FLIGHT" ColumnName="ID FLIGHT" />
+                <ScalarProperty Name="DEPARTURE_CITY" ColumnName="DEPARTURE CITY" />
+                <ScalarProperty Name="ARRIVE_CITY" ColumnName="ARRIVE CITY" />
+                <ScalarProperty Name="DATE_ARRIVE" ColumnName="DATE ARRIVE" />
+                <ScalarProperty Name="ID_PLAIN" ColumnName="ID PLAIN" />
+                <ScalarProperty Name="ID_PILOT" ColumnName="ID PILOT" />
+                <ScalarProperty Name="ID_SECOND_PILOT" ColumnName="ID SECOND PILOT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOADERS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.LOADERS">
+              <MappingFragment StoreEntitySet="LOADERS">
+                <ScalarProperty Name="ID_LOADER" ColumnName="ID LOADER" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SECOND_NAME" ColumnName="SECOND NAME" />
+                <ScalarProperty Name="ID_AIRPORT" ColumnName="ID AIRPORT" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PASSENGERS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.PASSENGERS">
+              <MappingFragment StoreEntitySet="PASSENGERS">
+                <ScalarProperty Name="ID_PASSENGER" ColumnName="ID PASSENGER" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SECOND_NAME" ColumnName="SECOND NAME" />
+                <ScalarProperty Name="ID_FLIGHT" ColumnName="ID FLIGHT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PILOTS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.PILOTS">
+              <MappingFragment StoreEntitySet="PILOTS">
+                <ScalarProperty Name="ID_PILOT" ColumnName="ID PILOT" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SECOND_NAME" ColumnName="SECOND NAME" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLAINES">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.PLAINES">
+              <MappingFragment StoreEntitySet="PLAINES">
+                <ScalarProperty Name="ID_PLANE" ColumnName="ID PLANE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="NUMBER_OF_SEATS" ColumnName="NUMBER OF SEATS" />
+                <ScalarProperty Name="ID_AIRPORT" ColumnName="ID AIRPORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLES">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.ROLES">
+              <MappingFragment StoreEntitySet="ROLES">
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SECOND_PILOTS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.SECOND_PILOTS">
+              <MappingFragment StoreEntitySet="SECOND PILOTS">
+                <ScalarProperty Name="ID_SECOND_PILOT" ColumnName="ID SECOND PILOT" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SECOND_NAME" ColumnName="SECOND NAME" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="AEROPORT_ModulesModel.USERS">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
